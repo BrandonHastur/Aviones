@@ -1,0 +1,94 @@
+/* estilos.css */
+
+/* Estilos generales para el cuerpo de la página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Estilos para los encabezados */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Contenedor responsivo para tablas */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Suaviza el scroll en dispositivos táctiles */
+  margin-bottom: 20px;
+}
+
+/* Estilos generales para las tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Bordes para tabla, celdas y encabezados */
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+/* Espaciado y alineación en celdas */
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+}
+
+/* Estilo para el encabezado de la tabla */
+thead {
+  background-color: #f0f0f0;
+}
+
+/* Filas alternas para mejorar la legibilidad */
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Efecto hover para filas */
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+/* BOTONES */
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff; /* Azul */
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #a71d2a;
+}
+
+button i a{
+  text-decoration: none;
+  color: #ffffff;
+}
+

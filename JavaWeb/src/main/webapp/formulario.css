@@ -1,0 +1,82 @@
+/* Estilos generales para formularios */
+form {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+h1{
+  text-align: center;
+}
+
+/* Remover el borde y márgenes del fieldset */
+form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo para la leyenda del formulario */
+form legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Estilo para los labels de los formularios */
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Estilos para los inputs, selects y textareas */
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form input[type="email"],
+form input[type="password"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+/* Estilos para botones */
+form button,
+form input[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover,
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos de ayuda para responsividad */
+@media (max-width: 600px) {
+  form {
+    width: 90%;
+    padding: 15px;
+  }
+}
