@@ -4,7 +4,7 @@
 <%@ page import="java.util.List" %>
 
 <%
-List<Avion> avion = (List<Avion>) request.getAttribute("aviones");
+List<Avion> aviones = (List<Avion>) request.getAttribute("aviones");
 List<Aerolinea> aerolineas = (List<Aerolinea>) request.getAttribute("aerolineas");
 %>
 
@@ -12,17 +12,17 @@ List<Aerolinea> aerolineas = (List<Aerolinea>) request.getAttribute("aerolineas"
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Avion</title>
+  <title>Alta Avion</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/formulario.css">
 </head>
 <body>
 
-<form method="POST" action="${pageContext.request.contextPath}/aviones/actualizar" class="form-avion">
+<form method="POST" action="${pageContext.request.contextPath}/aviones/alta" class="form-avion">
   <fieldset>
     <legend>Agregar un avion</legend>
 
     <label>ID_AVION:</label>
-    <input type="num" name="id" id="id">
+    <input type="number" name="id" id="id" value="0">
 
     <label for="numRegistro">Num Registro:</label>
     <input type="text" id="numRegistro" name="numRegistro" required>
@@ -34,16 +34,16 @@ List<Aerolinea> aerolineas = (List<Aerolinea>) request.getAttribute("aerolineas"
     <input type="text" id="codigoModelo" name="codigoModelo" required>
 
     <label for="capacidad">Capacidad:</label>
-    <input type="number" id="capacidad" name="capacidadrequired>
+    <input type="number" id="capacidad" name="capacidad" required>
 
     <label for="fechaPrimerVuelo">Fecha del primer vuelo:</label>
-    <input type="date" id="fechaPrimerVuelo" name="fechaPrimerVuelo"  required>
+    <input type="date" id="fechaPrimerVuelo" name="fechaPrimerVuelo" required>
 
     <label for="aerolinea">Aerolinea:</label>
     <select id="aerolinea" name="aerolinea" required>
-      <option value="" disabled>Seleccione una aerolinea</option>
+      <option value="" disabled selected>Seleccione una aerolinea</option>
       <% for (Aerolinea a : aerolineas) { %>
-        <option value="<%= a.getId() %>" <%= avion.getAerolinea().getId().equals(a.getId()) ? "selected" : ""%>>
+        <option value="<%= a.getId() %>">
           <%= a.getNombre() %>
         </option>
       <% } %>
@@ -51,11 +51,11 @@ List<Aerolinea> aerolineas = (List<Aerolinea>) request.getAttribute("aerolineas"
 
     <label for="estatus">Estatus:</label>
     <select id="estatus" name="estatus" required>
-      <option value="1" <%= avion.getEstatus().name().equals("DISPONIBLE") ? "selected" : "" %>>Disponible</option>
-      <option value="2" <%= avion.getEstatus().name().equals("NO_DISPONIBLE") ? "selected" : "" %>>No Disponible</option>
+      <option value="1">Disponible</option>
+      <option value="2">No Disponible</option>
     </select>
 
-    <button type="submit">Editar Avion</button>
+    <button type="submit">Agregar Avion</button>
   </fieldset>
 </form>
 
