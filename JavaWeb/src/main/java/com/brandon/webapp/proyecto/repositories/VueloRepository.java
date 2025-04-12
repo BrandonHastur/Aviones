@@ -67,7 +67,7 @@ public class VueloRepository implements  IRepository<Vuelo>{
 
     @Override
     public void actualizar(Vuelo elemento) {
-        String sql = "{call INSERTAR_ACTUALIZAR_VUELO(?,?,?,?,?,?,?,?)};";
+        String sql = "{call INSERTAR_ACTUALIZAR_VUELO(?,?,?,?,?,?,?)}";
         try(CallableStatement stmt = conn.prepareCall(sql)){
             stmt.setLong(1,0L);
             stmt.setString(2,elemento.getCodigoVuelo());
@@ -77,9 +77,8 @@ public class VueloRepository implements  IRepository<Vuelo>{
             stmt.setLong(5, elemento.getOrigen().getId());
             stmt.setLong(7, elemento.getDestino().getId());
 
-
-            stmt.setInt(3,elemento.getEstatus() == Estatus.DISPONIBLE ? 1:2);
             stmt.setDate(4,Date.valueOf(elemento.getFechaPrimerVuelo()));
+            stmt.setInt(3,elemento.getEstatus() == Estatus.DISPONIBLE ? 1:2);
             stmt.executeUpdate();
 
         }catch (SQLException e){

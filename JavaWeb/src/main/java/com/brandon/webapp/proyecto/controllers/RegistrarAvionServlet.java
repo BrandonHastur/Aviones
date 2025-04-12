@@ -61,7 +61,7 @@ public class RegistrarAvionServlet extends HttpServlet {
         Aerolinea idSerolinea = aerolineaRepo.buscarPorId(aerolinea).orElse(null);
 
         Avion avion = new Avion(id, numRegistro, tipo, codigoModelo, capacidad, fechaPrimerVuelo, idEstatus, idSerolinea);
-        avionRepo.actualizar(avion);
+        avionRepo.crear(avion);
 
         resp.sendRedirect(req.getContextPath() + "/aviones/listar");
     }

@@ -50,15 +50,16 @@ public class AvionRepository implements IRepository<Avion> {
 
     @Override
     public void crear(Avion elemento) {
-        String sql = "{call INSERTAR_ACTUALIZAR_AVION(?,?,?,?,?,?,?,?)};";
+        System.out.println("Creando avion: " + elemento);
+        String sql = "{call INSERTAR_ACTUALIZAR_AVION(?,?,?,?,?,?,?,?)}";
         try(CallableStatement stmt = conn.prepareCall(sql)){
-            stmt.setLong(1, 0L);
+            stmt.setNull(1, Types.NULL);
             stmt.setString(2, elemento.getNumRegistro());
             stmt.setString(3, elemento.getTipo());
-            stmt.setInt(4, elemento.getEstatus() == Estatus.DISPONIBLE ? 1 : 2);
-            stmt.setString(5, elemento.getCodigoModelo());
-            stmt.setInt(6, elemento.getCapacidad());
-            stmt.setDate(7, Date.valueOf(elemento.getFechaPrimerVuelo()));
+            stmt.setString(4, elemento.getCodigoModelo());
+            stmt.setInt(5, elemento.getCapacidad());
+            stmt.setDate(6, Date.valueOf(elemento.getFechaPrimerVuelo()));
+            stmt.setInt(7, elemento.getEstatus() == Estatus.DISPONIBLE ? 1 : 2);
             stmt.setLong(8, elemento.getAerolinea().getId());
 
 //            stmt.setLong(1,0L);
@@ -69,10 +70,12 @@ public class AvionRepository implements IRepository<Avion> {
 //            stmt.setDate(6,Date.valueOf(elemento.getFechaPrimerVuelo()));
 //            stmt.setInt(4,elemento.getEstatus() == Estatus.DISPONIBLE ? 1:2);
 //            stmt.setLong(5,elemento.getAerolinea().getId());
+            System.out.println("Ejecutando el stmt: " + elemento.toString());
             stmt.executeUpdate();
 
         }catch (SQLException e){
-            e.getMessage();
+            System.out.println("Error al crear el avion: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -83,10 +86,10 @@ public class AvionRepository implements IRepository<Avion> {
             stmt.setLong(1, elemento.getId());
             stmt.setString(2, elemento.getNumRegistro());
             stmt.setString(3, elemento.getTipo());
-            stmt.setString(5, elemento.getCodigoModelo());
-            stmt.setInt(6, elemento.getCapacidad());
-            stmt.setDate(7, Date.valueOf(elemento.getFechaPrimerVuelo()));
-            stmt.setInt(4, elemento.getEstatus() == Estatus.DISPONIBLE ? 1 : 2);
+            stmt.setString(4, elemento.getCodigoModelo());
+            stmt.setInt(5, elemento.getCapacidad());
+            stmt.setDate(6, Date.valueOf(elemento.getFechaPrimerVuelo()));
+            stmt.setInt(7, elemento.getEstatus() == Estatus.DISPONIBLE ? 1 : 2);
             stmt.setLong(8, elemento.getAerolinea().getId());
             stmt.executeUpdate();
 

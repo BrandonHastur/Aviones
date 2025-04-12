@@ -22,7 +22,7 @@ List<Aerolinea> aerolineas = (List<Aerolinea>) request.getAttribute("aerolineas"
     <legend>Agregar un avion</legend>
 
     <label>ID_AVION:</label>
-    <input type="number" name="id" id="id" value="0">
+    <input type="hidden"  name="id" id="id" value="0">
 
     <label for="numRegistro">Num Registro:</label>
     <input type="text" id="numRegistro" name="numRegistro" required>
