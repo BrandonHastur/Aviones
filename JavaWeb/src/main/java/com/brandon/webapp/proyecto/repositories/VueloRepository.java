@@ -76,7 +76,6 @@ public class VueloRepository implements  IRepository<Vuelo>{
             stmt.setLong(3, elemento.getAvion().getId());
             stmt.setLong(4, elemento.getOrigen().getId());
             stmt.setLong(5, elemento.getDestino().getId());
-
             stmt.setDate(6,Date.valueOf(elemento.getFechaPrimerVuelo()));
             stmt.setInt(7,elemento.getEstatus() == Estatus.DISPONIBLE ? 1:2);
             stmt.executeUpdate();
